@@ -68,7 +68,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className='w-[100%] flex flex-col h-[100vh]'>
+    <div className='w-[100%] flex flex-col'>
       <div className='text-white bg-black sticky top-0 w-[90%] mx-auto px-[70px] py-5 flex justify-between items-center'>
         <div className="flex gap-5 items-center">
           <img 

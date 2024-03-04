@@ -1,19 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Login.css";
 // import { useNavigate } from 'react-router-dom';
 
-
-
-const signup = () => {
+const Signup = () => {
   // const navigate = useNavigate();
-  const submit = () => {
-    window.location.href = "/deskboard";
+  const submit = async() => {
+    const res = await fetch("http://localhost:3000/api/v1/signup",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:JSON.stringify(formData)
+    })
+    window.location.href = "/dashboard";
   };
 
   const signin = () => {
     // navigate('/signin');
     window.location.href = "/";
   };
+
+  const [formData, setFormData] = useState({
+    name : "",
+    email : "",
+    password : "",
+    password2 : ""
+   });
+  
+   console.log(formData);
+  
+   function handleChange(event) {
+     const { name, value, checked, type } = event.target;
+     setFormData((prevState) => ({
+       ...prevState,
+       [name]: type === "checkbox" ? checked : value,
+     }));
+   }
 
   return (
     <div className="login">
@@ -28,7 +50,17 @@ const signup = () => {
         </div>
         <div className="content1">
           <div className="form">
-                  
+            <div className="input-field">
+              <div className="text-and-supporting-text">
+                <div className="text-and-supporting-text">
+                  <div className="label">
+                    <div className="email">Name</div>
+                  </div>
+                    <div className="examplgmailcom">
+                    <input onChange={handleChange} type="text" max="15"  className='examplgmailcom examplgmailcom-wrapper' placeholder="Name" name="name" value={formData.name} required></input></div>
+                </div>
+              </div>
+            </div>                 
             <div className="input-field">
               <div className="text-and-supporting-text">
                 <div className="text-and-supporting-text">
@@ -36,10 +68,7 @@ const signup = () => {
                     <div className="email">Email</div>
                   </div>
                     <div className="examplgmailcom">
-                    <input type="email"  className='examplgmailcom examplgmailcom-wrapper' placeholder="Email" name="email" required></input></div>
-                </div>
-                <div className="hint-text">
-                  This is a hint text to help user.
+                    <input onChange={handleChange} type="email"  className='examplgmailcom examplgmailcom-wrapper' placeholder="Email" name="email" value={formData.email} required></input></div>
                 </div>
               </div>
             </div>
@@ -49,11 +78,8 @@ const signup = () => {
                   <div className="label1">
                     <div className="email"> Create Password</div>
                   </div>
-                  <input type="password"  className='examplgmailcom wrapper' placeholder=" Create Password" name="password" required>
+                  <input onChange={handleChange} type="password"  className='examplgmailcom wrapper' placeholder=" Create Password" name="password" value={formData.password} required>
                   </input>
-                </div>
-                <div className="hint-text">
-                  This is a hint text to help user.
                 </div>
               </div>
             </div>
@@ -63,11 +89,8 @@ const signup = () => {
                   <div className="label1">
                     <div className="email"> Re-enter Password</div>
                   </div>
-                  <input type="password"  className='examplgmailcom wrapper' placeholder=" Re-enter Password" name="password" required>
+                  <input onChange={handleChange} type="password"  className='examplgmailcom wrapper' placeholder=" Re-enter Password" name="password2" value={formData.password2} required>
                   </input>
-                </div>
-                <div className="hint-text">
-                  This is a hint text to help user.
                 </div>
               </div>
             </div>
@@ -119,4 +142,4 @@ const signup = () => {
 };
 
 
-export default signup;
+export default Signup;

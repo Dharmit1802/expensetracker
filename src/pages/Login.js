@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,22 @@ const Login = () => {
   const signup = () => {
     navigate("/signup");
   };
+
+  const [formData, setFormData] = useState({
+    email : "",
+    password : "",
+   });
+  
+   console.log(formData);
+  
+   function handleChange(event) {
+     const { name, value, checked, type } = event.target;
+     setFormData((prevState) => ({
+       ...prevState,
+       [name]: type === "checkbox" ? checked : value,
+     }));
+   }
+
   return (
     <div className="login">
       <div className="content">
@@ -29,10 +45,7 @@ const Login = () => {
                     <div className="email">Email</div>
                   </div>
                     <div className="examplgmailcom">
-                    <input type="email"  className='examplgmailcom examplgmailcom-wrapper' placeholder="Email" name="email" required></input></div>
-                </div>
-                <div className="hint-text">
-                  This is a hint text to help user.
+                    <input onChange={handleChange} type="email"  className='examplgmailcom examplgmailcom-wrapper' placeholder="Email" value={formData.email} name="email" required></input></div>
                 </div>
               </div>
             </div>
@@ -42,11 +55,8 @@ const Login = () => {
                   <div className="label1">
                     <div className="email" >Password</div>
                   </div>
-                  <input type="password"  className='examplgmailcom wrapper' placeholder="Password" name="password" required>
+                  <input onChange={handleChange} type="password"  className='examplgmailcom wrapper' placeholder="Password" name="password" value={formData.password} required>
                   </input>
-                </div>
-                <div className="hint-text">
-                  This is a hint text to help user.
                 </div>
               </div>
             </div>
