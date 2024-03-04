@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+    .main {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 48px;
+      
+        height: calc(100vh - 48px - 68px - 40px);
+      }
+
+      .category {
+        margin-bottom: 16px;
+      }
+      .btn-category {
+        width: 100%;
+        background-image: none;
+      }
+      .btn {
+        border: none;
+        font-family: "Rubik Pixels", sans-serif;
+        line-height: 1;
+        text-transform: uppercase;
+        font-size: 17px;
+        padding: 16px 0 13px;
+        background-image: linear-gradient(135deg, #3b82f6, #ef4444, #16a34a, #eab308);
+        color: inherit;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        transform: scale(110%) rotate(-2deg);
+      }
+      
+      .btn-large {
+        font-size: 20px;
+        padding: 20px 32px 17px;
+      }
+      
+      .btn-all-categories {
+        margin-bottom: 16px;
+        width: 100%;
+      }
+      
+      .message {
+        background-color: #44403c;
+        margin-bottom: 40px;
+        padding: 16px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        border-radius: 16px;
+      }
+
+      .fact {
+        font-size: 20px;
+        line-height: 1.4;
+        background-color: #44403c;
+        margin-bottom: 16px;
+        padding: 16px 24px;
+        letter-spacing: -1px;
+        border-radius: 16px;
+      
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .tag {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: "Rubik Pixels", sans-serif;
+        padding-top: 3px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 100px;
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      
+      .overflow-y-auto {
+        overflow-y: auto;
+      }
+      
+      .overflow-y-auto::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for WebKit (Chrome, Safari, Edge) */
+      }
+      
+      .overflow-y-auto {
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+      }
