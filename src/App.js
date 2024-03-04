@@ -10,10 +10,10 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
   return (
     <div classname="h-[100vh] w-[100vw] bg-gray-500">
-      <Navbar></Navbar>
+      
       <Routes>
 
-        <Route path='/' element={<Landing></Landing>}></Route>
+        {/* <Route path='/' element={<Landing></Landing>}></Route> */}
 
         <Route path='/dashboard' element={
         <PrivateRoute>
@@ -21,7 +21,7 @@ function App() {
         </PrivateRoute>
         }></Route>
 
-        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/' element={<Login></Login>}></Route>
 
         <Route path='/signup' element={<Signup></Signup>}></Route>
 
