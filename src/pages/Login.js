@@ -9,6 +9,18 @@ const Login = () => {
     navigate("/signup");
   };
 
+  const handlelogin = async()=>{
+    const res = await fetch("http://localhost:3000/api/v1/login",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:JSON.stringify(formData)
+    })
+    navigate("/dashboard");
+    console.log(res);
+  }
+
   const [formData, setFormData] = useState({
     email : "",
     password : "",
@@ -95,7 +107,7 @@ const Login = () => {
             <div className="navigation-actions">
               <div className="button2">
                 <div className="button-base2">
-                  <button className="text5">Login</button>
+                  <button onClick={handlelogin} className="text5">Login</button>
                 </div>
               </div>
                <button className='sign-up-wrapper' onClick={signup} >Sign up</button>

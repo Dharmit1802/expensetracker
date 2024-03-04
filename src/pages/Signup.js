@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import "./Login.css";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const submit = async() => {
     const res = await fetch("http://localhost:3000/api/v1/signup",{
       method:"POST",
@@ -12,7 +12,8 @@ const Signup = () => {
       },
       body:JSON.stringify(formData)
     })
-    window.location.href = "/dashboard";
+    navigate('/dashboard');
+    console.log(res);
   };
 
   const signin = () => {
