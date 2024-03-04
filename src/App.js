@@ -7,10 +7,12 @@ import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
+
     <div className="bg-black min-h-[100vh]">
+
       <Routes>
 
-        <Route path='/' element={<Landing></Landing>}></Route>
+        {/* <Route path='/' element={<Landing></Landing>}></Route> */}
 
         <Route path='/dashboard' element={
         
@@ -18,7 +20,7 @@ function App() {
         
         }></Route>
 
-        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/' element={<Login></Login>}></Route>
 
         <Route path='/signup' element={<Signup></Signup>}></Route>
 
